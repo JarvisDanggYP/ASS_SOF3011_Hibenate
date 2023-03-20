@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="be41102f-c0e3-4f6d-b7ff-16f30e86e8d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/ChiTietSanPhamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/ChucVuServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/CuaHangServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/DongSanPhamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/GioHangChiTietServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/GioHangServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/HoaDonChiTietServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/HoaDonServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/KhachHangServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/MauSacServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/NhaSanXuatServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/NhanVienServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/SanPhamServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/utilities/ConnectDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/ChiTietSanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/ChucVu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/CuaHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/DongSanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/GioHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/GioHangChiTiet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/HoaDon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/HoaDonChiTiet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/KhachHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/MauSac.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/NhaSanXuat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/NhanVien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/SanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2NGnc6QOyxfOndourXFMSCNKjQR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.ass_sof3011_hibenate.utilities" />
+      <recent name="com.example.ass_sof3011_hibenate.view_model" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 10.1.72" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.72" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="ASS_SOF3011_Hibenate:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="910114e5-7068-44fa-bd98-69ce3213242c" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55801" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
+        <option name="DEBUG_PORT" value="55802" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Executor">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ASS_SOF3011_Hibenate:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be41102f-c0e3-4f6d-b7ff-16f30e86e8d6" name="Changes" comment="" />
+      <created>1679299364518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679299364518</updated>
+      <workItem from="1679299365670" duration="2456000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
