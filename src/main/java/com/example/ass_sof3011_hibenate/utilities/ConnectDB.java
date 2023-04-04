@@ -1,6 +1,6 @@
 package com.example.ass_sof3011_hibenate.utilities;
 
-import com.example.ass_sof3011_hibenate.view_model.*;
+import com.example.ass_sof3011_hibenate.domain_models.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -10,7 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 import java.util.Properties;
 
 public class ConnectDB {
-   
+
     private static final SessionFactory FACTORY;
 
     static {
@@ -19,9 +19,9 @@ public class ConnectDB {
         Properties properties = new Properties();
         properties.put(Environment.DIALECT, "org.hibernate.dialect.SQLServerDialect");
         properties.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        properties.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=QLBHHiberna√te");
-        properties.put(Environment.USER, "anhplph27863");
-        properties.put(Environment.PASS, "123");
+        properties.put(Environment.URL, "jdbc:sqlserver://localhost:1433;databaseName=MyNewDatabase");
+        properties.put(Environment.USER, "sa");
+        properties.put(Environment.PASS, "Dangtrung@03");
         properties.put(Environment.SHOW_SQL, "true");
         //gen DB tự động
 //        properties.put(Environment.HBM2DDL_AUTO, "create");
@@ -29,20 +29,19 @@ public class ConnectDB {
         conf.setProperties(properties);
         conf.addAnnotatedClass(SanPham.class);
         conf.addAnnotatedClass(MauSac.class);
-        conf.addAnnotatedClass(NhaSanXuat.class);
-        conf.addAnnotatedClass(DongSanPham.class);
+        conf.addAnnotatedClass(NSX.class);
+        conf.addAnnotatedClass(DongSp.class);
         conf.addAnnotatedClass(CuaHang.class);
-        conf.addAnnotatedClass(ChucVu.class);     
-        conf.addAnnotatedClass(KhachHang.class);     
-        conf.addAnnotatedClass(GioHang.class);     
-        conf.addAnnotatedClass(GioHangChiTiet.class);     
-        conf.addAnnotatedClass(HoaDon.class);     
-        conf.addAnnotatedClass(HoaDonChiTiet.class);     
-        conf.addAnnotatedClass(NhanVien.class);     
-        conf.addAnnotatedClass(ChiTietSanPham.class);
+        conf.addAnnotatedClass(ChucVu.class);
+        conf.addAnnotatedClass(KhachHang.class);
+        conf.addAnnotatedClass(GioHang.class);
+        conf.addAnnotatedClass(GioHangChiTiet.class);
+        conf.addAnnotatedClass(HoaDon.class);
+        conf.addAnnotatedClass(HoaDonChiTiet.class);
+        conf.addAnnotatedClass(NhanVien.class);
+        conf.addAnnotatedClass(ChiTietSp.class);
 
-        ServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .applySettings(conf.getProperties()).build();
+        ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
         FACTORY = conf.buildSessionFactory(registry);
 
     }

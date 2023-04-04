@@ -1,51 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ASS_SOF3011_Hibenate:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be41102f-c0e3-4f6d-b7ff-16f30e86e8d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/ChiTietSanPhamServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/ChucVuServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/CuaHangServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/DongSanPhamServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/GioHangChiTietServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/GioHangServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/HoaDonChiTietServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/HoaDonServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/KhachHangServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/MauSacServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/NhaSanXuatServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/NhanVienServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/SanPhamServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/utilities/ConnectDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/ChiTietSanPham.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/ChucVu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/CuaHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/DongSanPham.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/GioHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/GioHangChiTiet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/HoaDon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/HoaDonChiTiet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/KhachHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/MauSac.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/NhaSanXuat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/NhanVien.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/SanPham.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    <list default="true" id="be41102f-c0e3-4f6d-b7ff-16f30e86e8d6" name="Changes" comment="Update code hibernate">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/DongSPServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/NSXServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/ChiTietSp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/ChucVu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/CuaHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/DongSp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/GioHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/GioHangChiTiet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/HoaDon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/HoaDonChiTiet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/KhachHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/MauSac.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/NSX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/NhanVien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/domain_models/SanPham.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/filters/AuthenFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/ChiTietSanPhamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/ChucVuRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/CuaHangRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/DongSpRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/HoaDonChiTietRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/HoaDonRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/KhachHangRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/MauSacRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/NSXRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/NhanVienRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/repositories/SanPhamRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_modes/ChiTietSp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/chi-tiet-sp/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/chi-tiet-sp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/chuc-vu/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/chuc-vu/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/chuc-vu/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/cua-hang/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/cua-hang/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/dong-sp/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/dong-sp/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/dong-sp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/hello.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/hoa-don/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/hoa-don/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/khach-hang/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/khach-hang/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/khach-hang/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/mau-sac/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/mau-sac/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/mau-sac/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/nhan-vien/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/nhan-vien/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/nsx/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/nsx/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/nsx/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/san-pham/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/san-pham/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/views/san-pham/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/ChiTietSanPhamServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/ChucVuServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/ChucVuServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/CuaHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/CuaHangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/DongSanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/user/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/HoaDonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/HoaDonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/KhachHangServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/KhachHangServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/MauSacServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/MauSacServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/NhaSanXuatServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/ChiTietSPServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/NhanVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/NhanVienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/SanPhamServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin/SanPhamServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/utilities/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/utilities/ConnectDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/ChiTietSanPham.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/ChucVu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/CuaHang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/DongSanPham.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/GioHang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/GioHangChiTiet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/HoaDon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/HoaDonChiTiet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/KhachHang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/MauSac.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/NhaSanXuat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/NhanVien.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_model/SanPham.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +103,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -77,30 +133,90 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/Code File/Java4/TestJava4/ASS_SOF3011_Hibenate/src/main/java/com/example/ass_sof3011_hibenate/view_models&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/view_models" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/viewmodel" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/ass_sof3011_hibenate/controllers/admin" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/views" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.ass_sof3011_hibenate.utilities" />
       <recent name="com.example.ass_sof3011_hibenate.view_model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.72">
+    <configuration name="ConnectDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.example.ASS_SOF3011_Hibenate.utilities.ConnectDB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.ass_sof3011_hibenate.utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KhachHangRepository" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.ass_sof3011_hibenate.repositories.KhachHangRepository" />
+      <module name="ASS_SOF3011_Hibenate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.ass_sof3011_hibenate.repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.example.ass_sof3011_hibenate.utilities.ConnectDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.ass_sof3011_hibenate.utilities.ConnectDB" />
+      <module name="ASS_SOF3011_Hibenate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.ass_sof3011_hibenate.utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 10.1.72" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.72" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/khach-hang/index" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="ASS_SOF3011_Hibenate:war exploded">
           <settings>
@@ -219,6 +335,19 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.KhachHangRepository" />
+      <item itemvalue="Application.com.example.ass_sof3011_hibenate.utilities.ConnectDB" />
+      <item itemvalue="Application.ConnectDB" />
+      <item itemvalue="Tomcat Server.Tomcat 10.1.72" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.com.example.ass_sof3011_hibenate.utilities.ConnectDB" />
+        <item itemvalue="Application.KhachHangRepository" />
+        <item itemvalue="Application.ConnectDB" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -228,11 +357,37 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679299364518</updated>
-      <workItem from="1679299365670" duration="2456000" />
+      <workItem from="1679299365670" duration="7368000" />
+      <workItem from="1679307816828" duration="25000" />
+      <workItem from="1679307845954" duration="23000" />
+      <workItem from="1679307898205" duration="28359000" />
+      <workItem from="1679757887577" duration="452000" />
+      <workItem from="1679845336264" duration="5513000" />
+      <workItem from="1679908064289" duration="156000" />
+      <workItem from="1679908321251" duration="2996000" />
+      <workItem from="1679912958542" duration="26000" />
+      <workItem from="1679920253758" duration="3817000" />
+      <workItem from="1679997388549" duration="13000" />
+      <workItem from="1680075396492" duration="16071000" />
+      <workItem from="1680248870700" duration="5241000" />
+      <workItem from="1680316766577" duration="3581000" />
+      <workItem from="1680500717114" duration="12598000" />
     </task>
+    <task id="LOCAL-00001" summary="Update code hibernate">
+      <created>1679302335352</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679302335352</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update code hibernate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update code hibernate" />
   </component>
 </project>

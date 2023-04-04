@@ -1,8 +1,8 @@
 package com.example.ass_sof3011_hibenate.controllers.admin;
 
 import com.example.ass_sof3011_hibenate.domain_models.ChucVu;
-import com.example.ass_sof3011_hibenate.domain_models.KhachHang;
-import com.example.ass_sof3011_hibenate.repositories.ChucVuRepository;
+import com.example.ass_sof3011_hibenate.domain_models.DongSp;
+import com.example.ass_sof3011_hibenate.repositories.DongSpRepository;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,18 +14,18 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 @WebServlet({
-        "/chuc-vu/index",    // GET
-        "/chuc-vu/create",   // GET
-        "/chuc-vu/edit",     // GET
-        "/chuc-vu/delete",   // GET
-        "/chuc-vu/store",    // POST
-        "/chuc-vu/update",   // POST
+        "/dong-sp/index",    // GET
+        "/dong-sp/create",   // GET
+        "/dong-sp/edit",     // GET
+        "/dong-sp/delete",   // GET
+        "/dong-sp/store",    // POST
+        "/dong-sp/update",   // POST
 })
-public class ChucVuServlet extends HttpServlet {
-    private ChucVuRepository chucVuRepository;
+public class DongSPServlet extends HttpServlet {
+    private DongSpRepository dongSPRepository;
 
-    public ChucVuServlet() {
-        this.chucVuRepository = new ChucVuRepository();
+    public DongSPServlet() {
+        this.dongSPRepository = new DongSpRepository();
     }
 
     @Override
@@ -50,17 +50,18 @@ public class ChucVuServlet extends HttpServlet {
         } else if (uri.contains("update")) {
             this.update(request, response);
         } else {
-            response.sendRedirect("/chuc-vu/index");
+            response.sendRedirect("/dong-sp/index");
         }
     }
-    protected void create(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getRequestDispatcher("/views/views/chuc-vu/create.jsp")
+
+    protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/views/views/dong-sp/create.jsp")
                 .forward(request, response);
     }
+
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("danhSach", this.chucVuRepository.findAll());
-        request.getRequestDispatcher("/views/views/chuc-vu/index.jsp")
+        request.setAttribute("danhSach", this.dongSPRepository.findAll());
+        request.getRequestDispatcher("/views/views/dong-sp/index.jsp")
                 .forward(request, response);
     }
 
@@ -69,29 +70,12 @@ public class ChucVuServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         String ma = request.getParameter("ma");
-        ChucVu chucVu = new ChucVu();
-        chucVu.setMa(ma);
-        this.chucVuRepository.findByMa(ma);
-        request.setAttribute("cv", chucVu);
-        request.getRequestDispatcher("/views/views/chuc-vu/edit.jsp")
+        DongSp dongSp = new DongSp();
+        dongSp.setMa(ma);
+        this.dongSPRepository.findByMa(ma);
+        request.setAttribute("ds", dongSp);
+        request.getRequestDispatcher("/views/views/dong-sp/edit.jsp")
                 .forward(request, response);
-    }
-
-    protected void update(
-            HttpServletRequest request,
-            HttpServletResponse response
-    ) throws ServletException, IOException {
-        try {
-            String ma = request.getParameter("ma");
-            ChucVu chucVu = (ChucVu) this.chucVuRepository.findByMa(ma);
-            BeanUtils.populate(chucVu, request.getParameterMap());
-            this.chucVuRepository.update(chucVu);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-            response.sendRedirect("/chuc-vu/index");
     }
 
     protected void delete(
@@ -99,29 +83,46 @@ public class ChucVuServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         String ma = request.getParameter("ma");
-        ChucVu chucVu = this.chucVuRepository.findByMa(ma);
-        if (chucVu == null) {
+        DongSp dongSp = this.dongSPRepository.findByMa(ma);
+        if (dongSp == null) {
             System.out.println("Không tìm thấy");
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         } else {
-            this.chucVuRepository.delete(chucVu);
-            response.sendRedirect("/chuc-vu/index");
+            this.dongSPRepository.delete(dongSp);
+            response.sendRedirect("/dong-sp/index");
         }
     }
 
-    protected void store(
+
+    protected void update(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
-            ChucVu chucVu = new ChucVu();
-            BeanUtils.populate(chucVu, request.getParameterMap());
-            this.chucVuRepository.insert(chucVu);
+            String ma = request.getParameter("ma");
+            DongSp dongSp = (DongSp) this.dongSPRepository.findByMa(ma);
+            BeanUtils.populate(dongSp, request.getParameterMap());
+            this.dongSPRepository.update(dongSp);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/chuc-vu/index");
+        response.sendRedirect("/dong-sp/index");
+    }
+
+
+    protected void store(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            DongSp dongSp = new DongSp();
+            BeanUtils.populate(dongSp, request.getParameterMap());
+            this.dongSPRepository.insert(dongSp);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("/dong-sp/index");
     }
 }
+
