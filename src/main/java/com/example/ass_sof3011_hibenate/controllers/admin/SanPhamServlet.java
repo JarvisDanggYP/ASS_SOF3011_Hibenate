@@ -56,14 +56,14 @@ public class SanPhamServlet extends HttpServlet {
     }
 
     protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/views/views/san-pham/create.jsp")
-                .forward(request, response);
+        request.setAttribute("view", "/views/views/san-pham/create.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")                .forward(request, response);
     }
 
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("danhSach", this.sanPhamRepository.findAll());
-        request.getRequestDispatcher("/views/views/san-pham/index.jsp")
-                .forward(request, response);
+        request.setAttribute("view", "/views/views/san-pham/index.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")                .forward(request, response);
     }
 
     protected void edit(
@@ -75,8 +75,8 @@ public class SanPhamServlet extends HttpServlet {
         sanPham.setMa(ma);
         this.sanPhamRepository.findByMa(ma);
         request.setAttribute("sp", sanPham);
-        request.getRequestDispatcher("/views/views/san-pham/edit.jsp")
-                .forward(request, response);
+        request.setAttribute("view", "/views/views/san-pham/edit.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")                .forward(request, response);
     }
 
     protected void update(
@@ -85,6 +85,14 @@ public class SanPhamServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/san-pham/edit?ma=" + ma);
+                return;
+
+            }
             SanPham sanPham = (SanPham) this.sanPhamRepository.findByMa(ma);
             BeanUtils.populate(sanPham, request.getParameterMap());
             this.sanPhamRepository.update(sanPham);
@@ -116,6 +124,19 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/san-pham/create");
+                return;
+
+            }
+            if (sanPhamRepository.findByMa(ma) != null ){
+                request.getSession().setAttribute("errorMessage", "Mã đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "/san-pham/create");
+                return;
+            }
             SanPham sanPham = new SanPham();
             BeanUtils.populate(sanPham, request.getParameterMap());
             this.sanPhamRepository.insert(sanPham);

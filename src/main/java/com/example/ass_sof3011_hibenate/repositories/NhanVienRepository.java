@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import jakarta.persistence.Query;
 
 import java.util.List;
+import java.util.UUID;
 
 public class NhanVienRepository {
     private Session hSession;
@@ -18,8 +19,9 @@ public class NhanVienRepository {
         this.hSession = ConnectDB.getFACTORY().openSession();
     }
     public List<NhanVien> findAll() {
-        String hql = "SELECT cv FROM NhanVien cv ORDER BY cv.ma ASC ";
-        TypedQuery<NhanVien> query = hSession.createQuery(hql, NhanVien.class);
+        Session session = ConnectDB.getFACTORY().openSession();
+        String hql = "SELECT nv FROM NhanVien nv ORDER BY nv.ma ASC ";
+        TypedQuery<NhanVien> query = session.createQuery(hql, NhanVien.class);
         return query.getResultList();
     }
 
@@ -100,5 +102,17 @@ public class NhanVienRepository {
             e.printStackTrace();
             return null;
         }
+    }
+    public UUID findIdChucVuByMa(String ma) {
+        Query query = hSession.createQuery("select nv.chucVu.id from  NhanVien nv where ma=:ma");
+        query.setParameter("ma", ma);
+        UUID idChucVu = (UUID) query.getSingleResult();
+        return idChucVu;
+    }
+    public UUID findIdCuaHangByMa(String ma) {
+        Query query = hSession.createQuery("select nv.cuaHang.id from  NhanVien nv where ma=:ma");
+        query.setParameter("ma", ma);
+        UUID idCuaHang = (UUID) query.getSingleResult();
+        return idCuaHang;
     }
 }

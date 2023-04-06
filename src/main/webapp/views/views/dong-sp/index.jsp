@@ -15,6 +15,7 @@
           href="/css/bootstrap.min.css"/>
 </head>
 <body>
+<h3 class="text-center">Dòng Sản Phẩm</h3>
 <div class="col-8 offset-2 mt-5 table-responsive">
     <div class="row">
         <div class="col-6">

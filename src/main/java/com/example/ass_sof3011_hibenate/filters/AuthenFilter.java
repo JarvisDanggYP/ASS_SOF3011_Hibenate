@@ -9,7 +9,20 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter(filterName = "AuthenFilter")
+@WebFilter({
+        "/chi-tiet-sp/*",
+        "/chuc-vu/*",
+        "/cua-hang/*",
+        "/dong-sp/*",
+        "/gio-hang/*",
+        "/hoa-don/*",
+        "/khach-hang/*",
+        "/mau-sac/*",
+        "/nsx/*",
+        "/nhan-vien/*",
+        "/san-pham/*",
+
+})
 public class AuthenFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }

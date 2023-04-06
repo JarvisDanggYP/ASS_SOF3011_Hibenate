@@ -56,13 +56,15 @@ public class NSXServlet extends HttpServlet {
     }
 
     protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/views/views/nsx/create.jsp")
+        request.setAttribute("view", "/views/views/nsx/create.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("danhSach", this.nsxRepository.findAll());
-        request.getRequestDispatcher("/views/views/nsx/index.jsp")
+        request.setAttribute("view", "/views/views/nsx/index.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
@@ -75,8 +77,8 @@ public class NSXServlet extends HttpServlet {
         nsx.setMa(ma);
         this.nsxRepository.findByMa(ma);
         request.setAttribute("nsx", nsx);
-        request.getRequestDispatcher("/views/views/nsx/edit.jsp")
-                .forward(request, response);
+        request.setAttribute("view", "/views/views/nsx/edit.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")                .forward(request, response);
     }
 
     protected void update(
@@ -85,6 +87,13 @@ public class NSXServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/nsx/create");
+                return;
+
+            }
             NSX nsx = (NSX) this.nsxRepository.findByMa(ma);
             BeanUtils.populate(nsx, request.getParameterMap());
             this.nsxRepository.update(nsx);
@@ -116,6 +125,19 @@ public class NSXServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/nsx/create");
+                return;
+
+            }
+            if (nsxRepository.findByMa(ma) != null ){
+                request.getSession().setAttribute("errorMessage", "Trùng mã");
+                response.sendRedirect(request.getContextPath() + "/nsx/create");
+                return;
+            }
             NSX nsx = new NSX();
             BeanUtils.populate(nsx, request.getParameterMap());
             this.nsxRepository.insert(nsx);

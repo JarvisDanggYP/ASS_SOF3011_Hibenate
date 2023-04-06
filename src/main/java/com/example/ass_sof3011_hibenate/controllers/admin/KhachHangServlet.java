@@ -66,7 +66,8 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        request.getRequestDispatcher("/views/views/khach-hang/create.jsp")
+        request.setAttribute("view", "/views/views/khach-hang/create.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
 
     }
@@ -80,7 +81,8 @@ public class KhachHangServlet extends HttpServlet {
         khachHang.setMa(ma);
         this.khachHangRepository.findByMa(ma);
         request.setAttribute("kh", khachHang);
-        request.getRequestDispatcher("/views/views/khach-hang/edit.jsp")
+        request.setAttribute("view", "/views/views/khach-hang/edit.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
@@ -122,7 +124,8 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         request.setAttribute("danhSach", this.khachHangRepository.findAll());
-        request.getRequestDispatcher("/views/views/khach-hang/index.jsp")
+        request.setAttribute("view", "/views/views/khach-hang/index.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 

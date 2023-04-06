@@ -15,6 +15,7 @@
           href="/css/bootstrap.min.css"/>
 </head>
 <body>
+<h3 class="text-center">Chức Vụ</h3>
 <div class="col-8 offset-2 mt-5 table-responsive">
     <div class="row">
         <div class="col-6">
@@ -22,11 +23,11 @@
         </div>
     </div>
 
-    <c:if test="${ f:length(danhSach) == 0 }">
+    <c:if test="${ f:length(dsChucVu) == 0 }">
         <h3>Không có dữ liệu</h3>
     </c:if>
 
-    <c:if test="${ f:length(danhSach) != 0 }">
+    <c:if test="${ f:length(dsChucVu) != 0 }">
         <table class="table table-striped mt-3">
             <thead class="table-primary">
             <tr>
@@ -37,7 +38,7 @@
             </thead>
 
             <tbody>
-            <c:forEach items="${ danhSach }" var="cv">
+            <c:forEach items="${ dsChucVu }" var="cv">
                 <tr>
                     <td>${ cv.ma }</td>
                     <td>${ cv.ten }</td>

@@ -17,8 +17,9 @@ public class ChucVuRepository {
         this.hSession = ConnectDB.getFACTORY().openSession();
     }
     public List<ChucVu> findAll() {
+        Session session = ConnectDB.getFACTORY().openSession();
         String hql = "SELECT cv FROM ChucVu cv ORDER BY cv.ma ASC ";
-        TypedQuery<ChucVu> query = hSession.createQuery(hql, ChucVu.class);
+        TypedQuery<ChucVu> query = session.createQuery(hql, ChucVu.class);
         return query.getResultList();
     }
 

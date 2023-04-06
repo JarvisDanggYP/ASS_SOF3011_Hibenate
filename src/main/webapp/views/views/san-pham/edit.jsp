@@ -6,6 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.functions" %>
+
+<c:if test="${not empty sessionScope.errorMessage}">
+    <div class="alert alert-danger" role="alert">
+            ${sessionScope.errorMessage}
+    </div>
+    <% session.removeAttribute("errorMessage"); %>
+</c:if>
+
 <html>
 <head>
     <title>Title</title>
@@ -14,7 +24,7 @@
 </head>
 <body>
 <form class="row g-3 needs-validation col-10 offset-1 mt-5" novalidate method="POST"
-      action="/san-pham/store">
+      action="/san-pham/update?ma=${sp.ma}">
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">Mã</label>
         <input type="text" class="form-control"  value="${sp.ma}" disabled id="validationCustom01" name="ma" required>

@@ -8,7 +8,9 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet("/login")
+@WebServlet({
+        "/login",
+})
 public class LoginServlet extends HttpServlet {
     private NhanVienRepository nhanVienRepository;
     public LoginServlet(){
@@ -19,8 +21,8 @@ public class LoginServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        request.setAttribute("view", "/views/login.jsp");
-        request.getRequestDispatcher("/views/layout.jsp")
+        request.setAttribute("view", "/views/views/login.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 

@@ -76,7 +76,7 @@ public class MauSacRepository {
 
     public MauSac findByMa(String ma) {
         try {
-            String hql = "SELECT kh FROM MauSac kh WHERE kh.ma = ?1";
+            String hql = "SELECT ms FROM MauSac ms WHERE ms.ma = ?1";
             TypedQuery<MauSac> query = this.hSession.createQuery(hql, MauSac.class);
             query.setParameter(1, ma);
             return query.getSingleResult();

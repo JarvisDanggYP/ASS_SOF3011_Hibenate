@@ -53,14 +53,18 @@ public class ChucVuServlet extends HttpServlet {
             response.sendRedirect("/chuc-vu/index");
         }
     }
+
     protected void create(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/views/views/chuc-vu/create.jsp")
+        request.setAttribute("view", "/views/views/chuc-vu/create.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
+
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("danhSach", this.chucVuRepository.findAll());
-        request.getRequestDispatcher("/views/views/chuc-vu/index.jsp")
+        request.setAttribute("dsChucVu", this.chucVuRepository.findAll());
+        request.setAttribute("view", "/views/views/chuc-vu/index.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
@@ -73,7 +77,8 @@ public class ChucVuServlet extends HttpServlet {
         chucVu.setMa(ma);
         this.chucVuRepository.findByMa(ma);
         request.setAttribute("cv", chucVu);
-        request.getRequestDispatcher("/views/views/chuc-vu/edit.jsp")
+        request.setAttribute("view", "/views/views/chuc-vu/edit.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
@@ -83,6 +88,13 @@ public class ChucVuServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/chuc-vu/create");
+                return;
+
+            }
             ChucVu chucVu = (ChucVu) this.chucVuRepository.findByMa(ma);
             BeanUtils.populate(chucVu, request.getParameterMap());
             this.chucVuRepository.update(chucVu);
@@ -91,7 +103,7 @@ public class ChucVuServlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-            response.sendRedirect("/chuc-vu/index");
+        response.sendRedirect("/chuc-vu/index");
     }
 
     protected void delete(
@@ -114,6 +126,19 @@ public class ChucVuServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/chuc-vu/create");
+                return;
+
+            }
+            if (chucVuRepository.findByMa(ma) != null ){
+                request.getSession().setAttribute("errorMessage", "Trùng mã");
+                response.sendRedirect(request.getContextPath() + "/chuc-vu/create");
+                return;
+            }
             ChucVu chucVu = new ChucVu();
             BeanUtils.populate(chucVu, request.getParameterMap());
             this.chucVuRepository.insert(chucVu);

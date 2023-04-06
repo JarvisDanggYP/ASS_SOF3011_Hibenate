@@ -1,5 +1,6 @@
 package com.example.ass_sof3011_hibenate.controllers.admin;
 
+import com.example.ass_sof3011_hibenate.domain_models.DongSp;
 import com.example.ass_sof3011_hibenate.domain_models.KhachHang;
 import com.example.ass_sof3011_hibenate.domain_models.MauSac;
 import com.example.ass_sof3011_hibenate.repositories.MauSacRepository;
@@ -55,14 +56,15 @@ public class MauSacServlet extends HttpServlet {
     }
 
     protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/views/views/mau-sac/create.jsp")
-                .forward(request, response);
+        request.setAttribute("view", "/views/views/mau-sac/create.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp").forward(request, response);
+
     }
 
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("danhSach", this.mauSacRepository.findAll());
-        request.getRequestDispatcher("/views/views/mau-sac/index.jsp")
-                .forward(request, response);
+        request.setAttribute("view", "/views/views/mau-sac/index.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp").forward(request, response);
     }
 
     protected void edit(
@@ -74,7 +76,8 @@ public class MauSacServlet extends HttpServlet {
         mauSac.setMa(ma);
         this.mauSacRepository.findByMa(ma);
         request.setAttribute("ms", mauSac);
-        request.getRequestDispatcher("/views/views/mau-sac/edit.jsp")
+        request.setAttribute("view", "/views/views/mau-sac/edit.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
@@ -84,6 +87,13 @@ public class MauSacServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/mau-sac/create");
+                return;
+
+            }
             MauSac mauSac = (MauSac) this.mauSacRepository.findByMa(ma);
             BeanUtils.populate(mauSac, request.getParameterMap());
             this.mauSacRepository.update(mauSac);
@@ -93,7 +103,6 @@ public class MauSacServlet extends HttpServlet {
             e.printStackTrace();
         }
         response.sendRedirect("/mau-sac/index");
-
     }
 
 
@@ -114,6 +123,19 @@ public class MauSacServlet extends HttpServlet {
 
     protected void store(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/mau-sac/create");
+                return;
+
+            }
+            if (mauSacRepository.findByMa(ma) != null ){
+                request.getSession().setAttribute("errorMessage", "Trùng mã");
+                response.sendRedirect(request.getContextPath() + "/mau-sac/create");
+                return;
+            }
             MauSac mauSac = new MauSac();
             BeanUtils.populate(mauSac, request.getParameterMap());
             this.mauSacRepository.insert(mauSac);

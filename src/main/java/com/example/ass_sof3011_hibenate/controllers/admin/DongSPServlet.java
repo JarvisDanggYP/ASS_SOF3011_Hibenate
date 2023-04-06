@@ -55,13 +55,15 @@ public class DongSPServlet extends HttpServlet {
     }
 
     protected void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/views/views/dong-sp/create.jsp")
+        request.setAttribute("view", "/views/views/dong-sp/create.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("danhSach", this.dongSPRepository.findAll());
-        request.getRequestDispatcher("/views/views/dong-sp/index.jsp")
+        request.setAttribute("view", "/views/views/dong-sp/index.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
@@ -74,7 +76,8 @@ public class DongSPServlet extends HttpServlet {
         dongSp.setMa(ma);
         this.dongSPRepository.findByMa(ma);
         request.setAttribute("ds", dongSp);
-        request.getRequestDispatcher("/views/views/dong-sp/edit.jsp")
+        request.setAttribute("view", "/views/views/dong-sp/edit.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp")
                 .forward(request, response);
     }
 
@@ -99,7 +102,16 @@ public class DongSPServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
+
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/dong-sp/edit?ma=" + ma);
+                return;
+
+            }
             DongSp dongSp = (DongSp) this.dongSPRepository.findByMa(ma);
             BeanUtils.populate(dongSp, request.getParameterMap());
             this.dongSPRepository.update(dongSp);
@@ -114,6 +126,19 @@ public class DongSPServlet extends HttpServlet {
 
     protected void store(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/dong-sp/create");
+                return;
+
+            }
+            if (dongSPRepository.findByMa(ma) != null ){
+                request.getSession().setAttribute("errorMessage", "Mã đã tồn tại");
+                response.sendRedirect(request.getContextPath() + "/dong-sp/create");
+                return;
+            }
             DongSp dongSp = new DongSp();
             BeanUtils.populate(dongSp, request.getParameterMap());
             this.dongSPRepository.insert(dongSp);
