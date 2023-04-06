@@ -2,138 +2,110 @@ package com.example.ass_sof3011_hibenate.repositories;
 
 import com.example.ass_sof3011_hibenate.domain_models.*;
 import com.example.ass_sof3011_hibenate.utilities.ConnectDB;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import jakarta.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 public class ChiTietSanPhamRepository {
+    private Session hSession;
+    public ChiTietSanPhamRepository()
+    {
+        this.hSession = ConnectDB.getFACTORY().openSession();
+    }
+    public List<ChiTietSp> findAll() {
+        Session session = ConnectDB.getFACTORY().openSession();
+        String hql = "SELECT obj FROM ChiTietSp obj";
+        TypedQuery<ChiTietSp> query = session.createQuery(hql, ChiTietSp.class);
+        return query.getResultList();
+    }
 
     public boolean insert(ChiTietSp chiTietSp) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            session.save(chiTietSp);
+        try {
+            transaction = hSession.beginTransaction();
+            hSession.persist(chiTietSp);
             transaction.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             return false;
         }
     }
 
-//    public boolean updateSoLuong(int soLuong, String id) {
-//        Transaction transaction = null;
-//        try (Session session = ConnectDB.getFACTORY().openSession()) {
-//            transaction = session.beginTransaction();
-//            Query query = session.createQuery("UPDATE ChiTietSp set soLuongTon =: soLuong" +
-//                    " where id=:idsp");
-//            query.setParameter("soLuong", soLuong);
-//            query.setParameter("idsp", id);
-//            query.executeUpdate();
-//            transaction.commit();
-//            return true;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
-
-
-    public boolean update(String id, ChiTietSp ctsp) {
+    public boolean update(ChiTietSp chiTietSp) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            Query query = session.createQuery("update ChiTietSp set sanPham.id =: idSp,dongSp.id = :idDong," +
-                    "nsx.id =:idNSX,mauSac.id =: idMau" +
-                    ",namBaoHanh =: namBh, " +
-                    "moTa =:mota,soLuongTon =:sl,giaNhap =: gianhap,giaBan =:giaban" +
-                    " where id=:id");
-            query.setParameter("idSp", ctsp.getSanPham().getId());
-            query.setParameter("idDong", ctsp.getDongSp().getId());
-//            query.setParameter("idMau", ctsp.getMauSac().getId());
-            query.setParameter("idNSX", ctsp.getNsx().getId());
-            query.setParameter("namBh", ctsp.getNamBaoHanh());
-            query.setParameter("mota", ctsp.getMoTa());
-            query.setParameter("sl", ctsp.getSoLuongTon());
-            query.setParameter("gianhap", ctsp.getGiaNhap());
-            query.setParameter("giaban", ctsp.getGiaBan());
-            query.setParameter("id", id);
-            query.executeUpdate();
+        try {
+            transaction = hSession.beginTransaction();
+            hSession.merge(chiTietSp);
             transaction.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             return false;
         }
     }
 
-    public boolean delete(ChiTietSp ctsp) {
+    public boolean delete(ChiTietSp chiTietSp) {
         Transaction transaction = null;
-        try (Session session = ConnectDB.getFACTORY().openSession()) {
-            transaction = session.beginTransaction();
-            session.delete(ctsp);
+        try {
+            transaction = hSession.beginTransaction();
+            hSession.delete(chiTietSp);
             transaction.commit();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             return false;
         }
     }
 
-
-    public List<SanPham> loadCbbSanPham() {
-        String hql = "select s from  SanPham s";
-        Session session = ConnectDB.getFACTORY().openSession();
-        List<SanPham> list = session.createQuery(hql).getResultList();
-        return list;
+    public ChiTietSp findByMa(UUID id)
+    {
+        String hql = "SELECT c FROM ChiTietSp c WHERE c.id = ?1";
+        TypedQuery<ChiTietSp> query = this.hSession.createQuery(hql, ChiTietSp.class);
+        query.setParameter(1, id);
+        return query.getSingleResult();
+    }
+    public UUID findIdSanPhamById(UUID id) {
+        Query query = hSession.createQuery("select ctsp.sanPham.id from ChiTietSp ctsp where id=:id");
+        query.setParameter("id", id);
+        UUID idSanPham = (UUID) query.getSingleResult();
+        return idSanPham;
+    }
+    public UUID findIdNSXById(UUID id) {
+        Query query = hSession.createQuery("select ctsp.nsx.id from ChiTietSp ctsp where id=:id");
+        query.setParameter("id", id);
+        UUID idNSX = (UUID) query.getSingleResult();
+        return idNSX;
+    }
+    public UUID findIdMauSacById(UUID id) {
+        Query query = hSession.createQuery("select ctsp.mauSac.id from ChiTietSp ctsp where id=:id");
+        query.setParameter("id", id);
+        UUID idMauSac = (UUID) query.getSingleResult();
+        return idMauSac;
+    }
+    public UUID findIdDongSpById(UUID id) {
+        Query query = hSession.createQuery("select ctsp.dongSp.id from ChiTietSp ctsp where id=:id");
+        query.setParameter("id", id);
+        UUID idDongSP = (UUID) query.getSingleResult();
+        return idDongSP;
     }
 
-    public List<DongSp> loadCbbDongSP() {
-        String hql = "select d from  DongSp d";
-        Session session = ConnectDB.getFACTORY().openSession();
-        List<DongSp> list = session.createQuery(hql).getResultList();
-        return list;
-    }
-
-    public List<MauSac> loadCbbMauSac() {
-        String hql = "select m from  MauSac m";
-        Session session = ConnectDB.getFACTORY().openSession();
-        List<MauSac> list = session.createQuery(hql).getResultList();
-        return list;
-    }
-
-    public List<NSX> loadCbbNSX() {
-        String hql = "select n from  NSX n";
-        Session session = ConnectDB.getFACTORY().openSession();
-        List<NSX> list = session.createQuery(hql).getResultList();
-        return list;
-    }
-
-//    public ArrayList<ChiTietSanPhamViewModel> getListDB() {
-//        Session session = ConnectDB.getFACTORY().openSession();
-//        Query query = session.createQuery(
-//                "select  new com.QuanLiBanHang.ViewModels.ChiTietSanPhamViewModel("
-//                + "ct.sanPham.maSP,ct.sanPham.tenSp,ct.mauSac.ten,ct.dongSp.ten,ct.nsx.ten,ct.namBaoHanh,ct.moTa,ct.soLuongTon,ct.giaNhap,ct.giaBan,ct.id) "
-//                + " from com.QuanLiBanHang.DomainModels.ChiTietSp ct");
-//        ArrayList<ChiTietSanPhamViewModel> list = (ArrayList<ChiTietSanPhamViewModel>) query.getResultList();
-//
-//        return list;
-//    }
-
-//    public ArrayList<ChiTietSanPhamViewModel> timKiem(String ten) {
-//        Session session = ConnectDB.getFACTORY().openSession();
-//        Query query = session.createQuery(
-//                "select  new com.QuanLiBanHang.ViewModels.ChiTietSanPhamViewModel("
-//                + "ct.sanPham.maSP,ct.sanPham.tenSp,ct.mauSac.ten,ct.dongSp.ten,ct.nsx.ten,ct.namBaoHanh,ct.moTa,ct.soLuongTon,ct.giaNhap,ct.giaBan,ct.id) "
-//                + " from com.QuanLiBanHang.DomainModels.ChiTietSp ct where ct.sanPham.tenSp =:ten or ct.sanPham.maSP=:ten");
-//                query.setParameter("ten",ten);
-//        ArrayList<ChiTietSanPhamViewModel> list = (ArrayList<ChiTietSanPhamViewModel>) query.getResultList();
-//
-//        return list;
 }
 
 
