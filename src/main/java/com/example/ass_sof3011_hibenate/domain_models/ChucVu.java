@@ -32,9 +32,5 @@ public class ChucVu implements Serializable {
     @OneToMany(mappedBy = "chucVu", fetch = FetchType.LAZY)
     private List<NhanVien> listNhanVien;
 
-    public ChucVu(String ma, String ten) {
-        this.ma = ma;
-        this.ten = ten;
-    }
 
 }

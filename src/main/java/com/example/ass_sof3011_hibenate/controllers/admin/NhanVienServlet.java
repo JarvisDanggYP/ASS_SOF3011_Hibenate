@@ -127,9 +127,9 @@ public class NhanVienServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/nhan-vien/create");
                 return;
             }
-            DateTimeConverter dateTimeConverter = new DateConverter(new Date());
-            dateTimeConverter.setPattern("yyyy-MM-dd");
-            ConvertUtils.register(dateTimeConverter, Date.class);
+//            DateTimeConverter dateTimeConverter = new DateConverter(new Date());
+//            dateTimeConverter.setPattern("yyyy-MM-dd");
+//            ConvertUtils.register(dateTimeConverter, Date.class);
 
             UUID idChucVu = UUID.fromString(request.getParameter("idChucVu"));
             ChucVu chucVu = new ChucVu();
@@ -170,9 +170,9 @@ public class NhanVienServlet extends HttpServlet {
                 return;
 
             }
-            DateTimeConverter dateTimeConverter = new DateConverter(new Date());
-            dateTimeConverter.setPattern("yyyy-MM-dd");
-            ConvertUtils.register(dateTimeConverter, Date.class);
+//            DateTimeConverter dateTimeConverter = new DateConverter(new Date());
+//            dateTimeConverter.setPattern("yyyy-MM-dd");
+//            ConvertUtils.register(dateTimeConverter, Date.class);
 
             UUID idChucVu = UUID.fromString(request.getParameter("idChucVu"));
             ChucVu cv = new ChucVu();
@@ -187,6 +187,7 @@ public class NhanVienServlet extends HttpServlet {
             domainModelNV.setCuaHang(ch);
 
             BeanUtils.populate(domainModelNV, request.getParameterMap());
+
             this.nhanVienRepository.update(domainModelNV);
         } catch (IllegalAccessException e) {
             e.printStackTrace();

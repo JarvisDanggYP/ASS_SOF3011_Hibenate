@@ -11,9 +11,9 @@ import java.io.IOException;
 @WebServlet({
         "/login",
 })
-public class LoginServlet extends HttpServlet {
+public class NhanVienLoginServlet extends HttpServlet {
     private NhanVienRepository nhanVienRepository;
-    public LoginServlet(){
+    public NhanVienLoginServlet(){
         this.nhanVienRepository = new NhanVienRepository();
     }
     @Override

@@ -17,7 +17,7 @@ public class ChiTietSanPhamRepository {
     private Session hSession;
     public ChiTietSanPhamRepository()
     {
-        this.hSession = ConnectDB.getFACTORY().openSession();
+        hSession = ConnectDB.getFACTORY().openSession();
     }
     public List<ChiTietSp> findAll() {
         Session session = ConnectDB.getFACTORY().openSession();
@@ -74,7 +74,7 @@ public class ChiTietSanPhamRepository {
         }
     }
 
-    public ChiTietSp findByMa(UUID id)
+    public ChiTietSp findByID(UUID id)
     {
         String hql = "SELECT c FROM ChiTietSp c WHERE c.id = ?1";
         TypedQuery<ChiTietSp> query = this.hSession.createQuery(hql, ChiTietSp.class);

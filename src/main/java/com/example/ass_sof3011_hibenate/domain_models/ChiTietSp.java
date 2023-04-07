@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,19 +25,19 @@ public class ChiTietSp {
     private UUID id;
 
     @Column(name = "NamBH")
-    private int namBaoHanh;
+    private Integer namBaoHanh;
 
-    @Column(name = "MoTa", columnDefinition = "Nvarchar(100)")
+    @Column(name = "MoTa")
     private String moTa;
 
     @Column(name = "SoLuongTon")
-    private int soLuongTon;
+    private Integer soLuongTon;
 
-    @Column(name = "GiaNhap", columnDefinition = "Decimal(20,0)")
-    private Integer giaNhap;
+    @Column(name = "GiaNhap")
+    private BigDecimal giaNhap;
 
-    @Column(name = "GiaBan", columnDefinition = "Decimal(20,0)")
-    private Integer giaBan;
+    @Column(name = "GiaBan")
+    private BigDecimal giaBan;
     @ManyToOne
     @JoinColumn(name = "idSp")
     private SanPham sanPham;

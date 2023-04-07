@@ -11,6 +11,7 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @WebServlet({
@@ -80,8 +81,8 @@ public class ChiTietSPServlet extends HttpServlet {
                          HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("dsCtsp", chiTietSanPhamRepository.findAll());
-        request.setAttribute("view", "/views/chitiet_sanpham/index.jsp");
-        request.getRequestDispatcher("/views/layout.jsp").forward(request, response);
+        request.setAttribute("view", "/views/views/chi-tiet-sp/index.jsp");
+        request.getRequestDispatcher("/views/views/layout.jsp").forward(request, response);
     }
 
     protected void edit(HttpServletRequest request,
@@ -94,7 +95,7 @@ public class ChiTietSPServlet extends HttpServlet {
 
         UUID id = UUID.fromString(request.getParameter("id"));
 
-        ChiTietSp ctsp = chiTietSanPhamRepository.findByMa(id);
+        ChiTietSp ctsp = chiTietSanPhamRepository.findByID(id);
         request.setAttribute("ctsp", ctsp);
 
         request.setAttribute("idSanPham", chiTietSanPhamRepository.findIdSanPhamById(id));
@@ -107,46 +108,51 @@ public class ChiTietSPServlet extends HttpServlet {
     }
 
     protected void update(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            String id = request.getParameter("id");
+            try {
 
-            UUID idSanPham = UUID.fromString(request.getParameter("idSanPham"));
-            SanPham sp = new SanPham();
-            sp.setId(idSanPham);
+                // Lấy các giá trị từ form
+                UUID idDong = UUID.fromString(request.getParameter("idDongSP"));
+                UUID idNSX = UUID.fromString(request.getParameter("idNSX"));
+                UUID idMauSac = UUID.fromString(request.getParameter("idMauSac"));
+                UUID idSp = UUID.fromString(request.getParameter("idSanPham"));
+                UUID id = UUID.fromString(request.getParameter("id"));
 
-            UUID idNSX = UUID.fromString(request.getParameter("idNSX"));
-            NSX nsx = new NSX();
-            nsx.setId(idNSX);
+                // Tạo đối tượng
+                DongSp dongSp = new DongSp();
+                dongSp.setId(idDong);
+                NSX nsx = new NSX();
+                nsx.setId(idNSX);
+                MauSac mauSac = new MauSac();
+                mauSac.setId(idMauSac);
+                SanPham sanPham = new SanPham();
+                sanPham.setId(idSp);
 
-            UUID idMauSac = UUID.fromString(request.getParameter("idMauSac"));
-            MauSac ms = new MauSac();
-            ms.setId(idMauSac);
-
-            UUID idDongSP = UUID.fromString(request.getParameter("idDongSP"));
-            DongSp dsp = new DongSp();
-            dsp.setId(idDongSP);
-
-
-            ChiTietSp chiTietSanPham = chiTietSanPhamRepository.findByMa(UUID.fromString(id));
-            chiTietSanPham.setSanPham(sp);
-            chiTietSanPham.setNsx(nsx);
-            chiTietSanPham.setMauSac(ms);
-            chiTietSanPham.setDongSp(dsp);
-
-            BeanUtils.populate(chiTietSanPham, request.getParameterMap());
-            chiTietSanPhamRepository.update(chiTietSanPham);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
+                // Set các giá trị vào đối tượng
+                ChiTietSp chiTietSp = chiTietSanPhamRepository.findByID(id);
+                chiTietSp.setSanPham(sanPham);
+                chiTietSp.setMauSac(mauSac);
+                chiTietSp.setNsx(nsx);
+                chiTietSp.setDongSp(dongSp);
+                chiTietSp.setNamBaoHanh(Integer.parseInt(request.getParameter("namBaoHanh")));
+                chiTietSp.setMoTa(request.getParameter("moTa"));
+                chiTietSp.setSoLuongTon(Integer.parseInt(request.getParameter("soLuongTon")));
+                chiTietSp.setGiaNhap(new BigDecimal(request.getParameter("giaNhap")));
+                chiTietSp.setGiaBan(new BigDecimal(request.getParameter("giaBan")));
+                if (chiTietSanPhamRepository.update(chiTietSp)) {
+//                    request.getSession().setAttribute("message", "Update thành công");
+                    response.sendRedirect(request.getContextPath() + "/chi-tiet-sp/index");
+                }else {
+                    request.getSession().setAttribute("errorMessage", "Update thất bại");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
-        response.sendRedirect("/chi-tiet-sp/index");
-    }
 
 
     protected void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String id = request.getParameter("id");
-        ChiTietSp ctsp = chiTietSanPhamRepository.findByMa(UUID.fromString(id));
+        UUID id = UUID.fromString(request.getParameter("id"));
+        ChiTietSp ctsp = chiTietSanPhamRepository.findByID(UUID.fromString(String.valueOf(id)));
         chiTietSanPhamRepository.delete(ctsp);
         response.sendRedirect("/chi-tiet-sp/index");
     }
@@ -169,7 +175,6 @@ public class ChiTietSPServlet extends HttpServlet {
             DongSp dsp = new DongSp();
             dsp.setId(idDongSP);
 
-
             ChiTietSp chiTietSanPham = new ChiTietSp();
             chiTietSanPham.setSanPham(sp);
             chiTietSanPham.setNsx(nsx);
@@ -177,9 +182,6 @@ public class ChiTietSPServlet extends HttpServlet {
             chiTietSanPham.setDongSp(dsp);
 
             BeanUtils.populate(chiTietSanPham, request.getParameterMap());
-//           int namSX = Integer.parseInt(request.getParameter("namSX"));
-//           String moTa =
-
             chiTietSanPhamRepository.insert(chiTietSanPham);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
