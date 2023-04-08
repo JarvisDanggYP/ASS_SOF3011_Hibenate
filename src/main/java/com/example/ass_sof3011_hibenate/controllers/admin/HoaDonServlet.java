@@ -66,7 +66,7 @@ public class HoaDonServlet extends HttpServlet {
         } else if (uri.contains("update")) {
             this.update(request, response);
         } else {
-            response.sendRedirect("/cua-hang/index");
+            response.sendRedirect("/hoa-don/index");
         }
     }
     protected void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -97,10 +97,12 @@ public class HoaDonServlet extends HttpServlet {
         request.getRequestDispatcher("/views/views/layout.jsp").forward(request, response);
     }
     protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UUID id = UUID.fromString(request.getParameter("id"));
+        String id = request.getParameter("ma");
         HoaDon hd = hoaDonRepository.findByMa(String.valueOf(id));
         hoaDonRepository.delete(hd);
         response.sendRedirect("/hoa-don/index");
+
+
     }
 
     protected void store(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -120,9 +122,9 @@ public class HoaDonServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/hoa-don/create");
                 return;
             }
-            DateTimeConverter dateTimeConverter = new DateConverter(new Date());
-            dateTimeConverter.setPattern("yyyy-MM-dd");
-            ConvertUtils.register(dateTimeConverter, Date.class);
+//            DateTimeConverter dateTimeConverter = new DateConverter(new Date());
+//            dateTimeConverter.setPattern("yyyy-MM-dd");
+//            ConvertUtils.register(dateTimeConverter, Date.class);
 
 
             UUID idKhachHang= UUID.fromString(request.getParameter("idKhachHang"));
@@ -132,7 +134,6 @@ public class HoaDonServlet extends HttpServlet {
             UUID idNhanVien = UUID.fromString(request.getParameter("idNhanVien"));
             NhanVien nv = new NhanVien();
             nv.setId(idNhanVien);
-
 
             HoaDon domainModelHD = new HoaDon();
             domainModelHD.setKhachHang(kh);
@@ -154,17 +155,17 @@ public class HoaDonServlet extends HttpServlet {
             String tenNguoiNhan = request.getParameter("tenNguoiNhan");
             String diaChi = request.getParameter("diaChi");
             String sdt = request.getParameter("sdt");
-            if (ma.trim().isEmpty()||tenNguoiNhan.trim().isEmpty()|| diaChi.trim().isEmpty()|| diaChi.trim().isEmpty()||sdt.trim().isEmpty()) {
+
+            if (ma.trim().isEmpty()|| tenNguoiNhan.isEmpty()|| diaChi.isEmpty()|| sdt.isEmpty()){
                 request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
-                response.sendRedirect(request.getContextPath() + "/hoa-don/edit?ma=" + ma);
+                response.sendRedirect(request.getContextPath() + "/hoa-don/create");
                 return;
 
             }
-            UUID id = UUID.fromString(request.getParameter("id"));
 
-            DateTimeConverter dateTimeConverter = new DateConverter(new Date());
-            dateTimeConverter.setPattern("yyyy-MM-dd");
-            ConvertUtils.register(dateTimeConverter, Date.class);
+//            DateTimeConverter dateTimeConverter = new DateConverter(new Date());
+//            dateTimeConverter.setPattern("yyyy-MM-dd");
+//            ConvertUtils.register(dateTimeConverter, Date.class);
 
 
             UUID idKhachHang= UUID.fromString(request.getParameter("idKhachHang"));
@@ -175,13 +176,13 @@ public class HoaDonServlet extends HttpServlet {
             NhanVien nv = new NhanVien();
             nv.setId(idNhanVien);
 
-
-            HoaDon domainModelHD = hoaDonRepository.findByMa(String.valueOf(id));
+            HoaDon domainModelHD = hoaDonRepository.findByMa(String.valueOf(ma));
             domainModelHD.setKhachHang(kh);
             domainModelHD.setNhanVien(nv);
 
             BeanUtils.populate(domainModelHD, request.getParameterMap());
             hoaDonRepository.update(domainModelHD);
+
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

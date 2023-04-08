@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 
+<h3 class="text-center">Hoá Đơn Chi Tiết</h3>
 <div class="col-8 offset-2">
     <a href="/hoa-don-chi-tiet/create" class="btn btn-success mt-3">Add hóa đơn chi tiết</a>
     <c:if test = "${f:length(dsHoaDonChiTiet) == 0}">

@@ -107,6 +107,24 @@ public class KhachHangServlet extends HttpServlet {
     ) throws ServletException, IOException {
         try {
             String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            String tenDem = request.getParameter("tenDem");
+            String ho = request.getParameter("ho");
+
+            String sdt = request.getParameter("sdt");
+
+            String diaChi = request.getParameter("diaChi");
+
+            String thanhPho = request.getParameter("thanhPho");
+            String quocGia = request.getParameter("quocGia");
+
+
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()||tenDem.trim().isEmpty()||ho.trim().isEmpty()||sdt.trim().isEmpty()||diaChi.trim().isEmpty()||thanhPho.trim().isEmpty()||quocGia.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/khach-hang/edit?ma=" + ma);
+                return;
+
+            }
             KhachHang domainModelKH = (KhachHang) this.khachHangRepository.findByMa(ma);
             BeanUtils.populate(domainModelKH, request.getParameterMap());
             this.khachHangRepository.update(domainModelKH);
@@ -134,6 +152,30 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
+            String ma = request.getParameter("ma");
+            String ten = request.getParameter("ten");
+            String tenDem = request.getParameter("tenDem");
+            String ho = request.getParameter("ho");
+
+            String sdt = request.getParameter("sdt");
+
+            String diaChi = request.getParameter("diaChi");
+
+            String thanhPho = request.getParameter("thanhPho");
+            String quocGia = request.getParameter("quocGia");
+
+
+            if (ma.trim().isEmpty()||ten.trim().isEmpty()||tenDem.trim().isEmpty()||ho.trim().isEmpty()||sdt.trim().isEmpty()||diaChi.trim().isEmpty()||thanhPho.trim().isEmpty()||quocGia.trim().isEmpty()){
+                request.getSession().setAttribute("errorMessage", "Vui lòng nhập đầy đủ thông tin");
+                response.sendRedirect(request.getContextPath() + "/khach-hang/create");
+                return;
+
+            }
+            if (khachHangRepository.findByMa(ma) != null ){
+                request.getSession().setAttribute("errorMessage", "Trùng mã");
+                response.sendRedirect(request.getContextPath() + "/khach-hang/create");
+                return;
+            }
             KhachHang qlkh = new KhachHang();
             BeanUtils.populate(qlkh, request.getParameterMap());
             this.khachHangRepository.insert(qlkh);

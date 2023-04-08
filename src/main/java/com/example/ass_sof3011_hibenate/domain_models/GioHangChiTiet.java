@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "GioHangChiTiet")
@@ -30,10 +31,10 @@ public class GioHangChiTiet implements Serializable {
     private int soLuongTon;
 
     @Column(name = "DonGia", columnDefinition = "Decimal(20,0)")
-    private Float donGia;
+    private BigDecimal donGia;
 
     @Column(name = "DonGiaKhiGiam", columnDefinition = "Decimal(20,0)")
-    private Float donGiaKhiGiam;
+    private BigDecimal donGiaKhiGiam;
 
 
 }

@@ -53,8 +53,8 @@
             <div class="col-6">
                 <label>Tình trạng</label>
                 <select name="tinh_trang" class="form-select" required>
-                    <option value="0" ${ hd.tinhTrang == "0" ? "selected" : "" }>Đã thanh toán</option>
-                    <option value="1" ${ hd.tinhTrang == "1" ? "selected" : "" }>Chưa thanh toán</option>
+                    <option value="0" ${ hd.trangThai == "0" ? "selected" : "" }>Đã thanh toán</option>
+                    <option value="1" ${ hd.trangThai == "1" ? "selected" : "" }>Chưa thanh toán</option>
                 </select>
             </div>
         </div>

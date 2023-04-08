@@ -56,9 +56,9 @@
                     <td>
                         <a href="/hoa-don/edit?ma=${ hd.ma }" class="btn btn-primary">Cập nhật</a>
                     </td>
-                    <td>
-                        <a href="/hoa-don/delete?ma=${ hd.ma }" class="btn btn-danger">Xóa</a>
-                    </td>
+<%--                    <td>--%>
+<%--&lt;%&ndash;                        <a href="/hoa-don/delete?ma=${ hd.ma }" class="btn btn-danger">Xóa</a>&ndash;%&gt;--%>
+<%--                    </td>--%>
                 </tr>
             </c:forEach>
             </tbody>

@@ -28,7 +28,7 @@ public class GioHang implements Serializable {
     private KhachHang khachHang;
 
     @Column(name = "idNV", columnDefinition = "uniqueidentifier")
-    private String idNV;
+    private UUID idNV;
 
     @Column(name = "Ma", columnDefinition = "Varchar(20)",unique = true)
     private String ma;

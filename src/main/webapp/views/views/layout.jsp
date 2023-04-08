@@ -27,7 +27,6 @@
     <%--                class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>--%>
     <%--        <div class="collapse navbar-collapse" id="navcol-1">--%>
     <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link active" href="/chi-tiet-sp/index">CT Sản Phẩm</a></li>
         <li class="nav-item"><a class="nav-link active" href="/chuc-vu/index">Chức Vụ</a></li>
         <li class="nav-item"><a class="nav-link active" href="/cua-hang/index">Cửa Hàng</a></li>
         <li class="nav-item"><a class="nav-link active" href="/dong-sp/index">Dòng SP</a></li>
@@ -36,9 +35,11 @@
         <li class="nav-item"><a class="nav-link active" href="/nhan-vien/index">Nhân Viên</a></li>
         <li class="nav-item"><a class="nav-link active" href="/nsx/index">NSX</a></li>
         <li class="nav-item"><a class="nav-link active" href="/san-pham/index">Sản Phẩm</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/chi-tiet-sp/index">CT Sản Phẩm</a></li>
         <li class="nav-item"><a class="nav-link active" href="/hoa-don/index">Hoá Đơn</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/hoa-don-chi-tiet/index">Hoá Đơn Chi Tiết</a></li>
     </ul>
-    <a class="btn btn-primary shadow" role="button" href="/login">Sign up</a>
+<%--    <a class="btn btn-primary shadow" role="button" href="/login">Sign up</a>--%>
     </div>
     </div>
 </nav>
